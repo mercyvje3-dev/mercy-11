@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A&K Cafe — Warm coffee & cozy moments</title>
+  <style>
+    :root{
+      --bg:#fffaf6; --accent:#df6531; --accent-dark:#e46c38; --muted:#6b6b6b; --card:#ffffffcc;
+      --glass: rgba(255,255,255,0.6);
+      --max-width:1200px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:#222;line-height:1.45}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{backdrop-filter:blur(6px);position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.6));border-bottom:1px solid #00000010}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffb37b);display:flex;align-items:center;justify-content:center;color:white;font-size:20px}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:#222;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a:hover{background:#00000006}
+    .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;font-weight:700}
+
+    /* Mobile nav */
+    .menu-toggle{display:none;border:0;background:transparent;font-size:20px}
+    @media(max-width:880px){
+      nav ul{display:none}
+      .menu-toggle{display:block}
+    }
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .hero-left h1{font-size:42px;margin:0 0 12px}
+    .hero-left p{margin:0 0 18px;color:var(--muted)}
+    .hero-actions{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;border:1px solid #00000010}
+    .hero-right{background:linear-gradient(180deg,#fff, #fff8f2);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+    .special{display:flex;flex-direction:column;gap:10px}
+    .special img{width:100%;border-radius:10px;display:block}
+
+    @media(max-width:880px){.hero{grid-template-columns:1fr;}.hero-right{order:2}.hero-left{order:1}}
+
+
+    section{padding:44px 0}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:12px}
+    h2{margin:0;font-size:22px}
+    .subtitle{color:var(--muted);font-size:14px}
+
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(16,16,16,0.04);display:flex;gap:12px;align-items:center}
+    .card img{width:84px;height:84px;object-fit:cover;border-radius:10px}
+    .card h3{margin:0;font-size:16px}
+    .price{font-weight:800;color:var(--accent-dark)}
+    .tags{font-size:13px;color:var(--muted)}
+
+    @media(max-width:1100px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+
+    .about{display:flex;gap:18px;align-items:center}
+    .about img{width:48%;border-radius:12px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    @media(max-width:900px){.about{flex-direction:column}.about img{width:100%}.gallery{grid-template-columns:repeat(2,1fr)}}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .form{background:var(--glass);padding:18px;border-radius:12px}
+    .form input,.form textarea{width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #00000012}
+    .map{height:100%;min-height:220px;border-radius:12px;background:#eee;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+    footer{background:#111213;color:#fff;padding:32px 0;margin-top:34px}
+    footer .container{display:flex;gap:20px;align-items:flex-start;justify-content:space-between}
+    .footer-col{max-width:320px}
+    .socials{display:flex;gap:10px;margin-top:10px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:#00000020;color:white;text-decoration:none}
+    .legal{color:#cfcfcf;font-size:13px;margin-top:12px}
+
+    .pill{background:#fff7f2;padding:6px 10px;border-radius:999px;font-weight:700;color:var(--accent-dark);display:inline-block}
+    .muted{color:var(--muted)}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">A&K</div>
+        <div>
+          <div style="font-size:15px">AnekCafe</div>
+          <div style="font-size:12px;color:var(--muted)">Coffee • Pastries • Good Vibes</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="menu-toggle" aria-expanded="false" onclick="toggleNav()">☰</button>
+        <ul id="navList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="#order">Order Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <p class="pill">Community vibes • Friendly baristas</p>
+        <h1>Locally roasted beans, served with love</h1>
+        <p class="muted">Relax, recharge, and enjoy hand-crafted drinks made just for you.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">See Menu</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve a Table</button>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;gap:8px;align-items:center"><strong>Mon–Fri</strong><span class="muted">8:00AM — 9:00PM</span></div>
+          <div style="display:flex;gap:8px;align-items:center"><strong>Sat–Sun</strong><span class="muted">8:30AM — 10:00PM</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="special">
+          <img src="SPL variedad.jpg" alt="Cappuccino & pastry">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:800">Today's Special</div>
+              <div class="muted" style="font-size:13px">Caramel Cappuccino + Almond Croissant</div>
+            </div>
+            <div style="font-weight:900;color:var(--accent-dark)">₹249</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="menu">
+      <div class="section-title">
+        <div>
+          <h2>Our Menu</h2>
+          <div class="subtitle">Coffee, tea, snacks & pastries — curated for every mood</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn btn-ghost" onclick="filterMenu('all')">All</button>
+          <button class="btn btn-ghost" onclick="filterMenu('hot')">Hot</button>
+          <button class="btn btn-ghost" onclick="filterMenu('cold')">Cold</button>
+          <button class="btn btn-ghost" onclick="filterMenu('vegan')">Vegan</button>
+        </div>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <article class="card" data-tags="hot">
+          <img src="Espresso.jpg" alt="Espresso">
+          <div>
+            <h3>Espresso</h3>
+            <div class="tags">Classic double shot</div>
+            <div style="margin-top:8px" class="price">₹120</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="hot">
+          <img src="latte-coffee.jpg" alt="Latte">
+          <div>
+            <h3>Café Latte</h3>
+            <div class="tags">Steamed milk & silky foam</div>
+            <div style="margin-top:8px" class="price">₹160</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="cold">
+          <img src="iced-mocha-coffee.jpg" alt="Iced coffee">
+          <div>
+            <h3>Iced Coffee</h3>
+            <div class="tags">Chilled brew, perfect for warm days</div>
+            <div style="margin-top:8px" class="price">₹170</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="vegan">
+          <img src="med-quinoa-salad-process.jpeg" alt="Vegan salad">
+          <div>
+            <h3>Quinoa Salad (V)</h3>
+            <div class="tags">Fresh greens, citrus dressing</div>
+            <div style="margin-top:8px" class="price">₹220</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="hot">
+          <img src="Chai Latte.jpg" alt="Tea">
+          <div>
+            <h3>Chai Latte</h3>
+            <div class="tags">Spiced Indian tea with steamed milk</div>
+            <div style="margin-top:8px" class="price">₹140</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="vegan">
+          <img src="Almond & Oat Cookie.jpg" alt="Vegan pastry">
+          <div>
+            <h3>Almond & Oat Cookie</h3>
+            <div class="tags">Baked daily</div>
+            <div style="margin-top:8px" class="price">₹95</div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="cold">
+          <img src="Cold Brew.jpg" alt="Cold brew">
+          <div>
+            <h3>Cold Brew</h3>
+            <div class="tags">Slow-steeped for 16 hours</div>
+            <div style="margin-top:8px" class="price">₹190</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+    <section id="about">
+      <div class="section-title">
+        <div>
+          <h2>About Us</h2>
+          <div class="subtitle">Craft, comfort, community</div>
+        </div>
+      </div>
+      <div class="about" style="margin-top:18px">
+        <img src="cofeeeee.jpg" alt="Cafe interior">
+        <div>
+          <p class="muted">More than a café — it’s your cozy corner in the city. 
+            We serve warmth, one cup at a time.Fresh aromas, friendly smiles, familiar comfort.</p>
+          <ul style="margin-top:12px;color:var(--muted)">
+
+            <li>Locally roasted single-origin beans</li>
+            <li>Freshly baked pastries, made in-house</li>
+            <li>Comfortable seating and free Wi‑Fi</li>
+
+          </ul>
+          <div style="margin-top:14px">
+            <a href="#menu" class="btn btn-primary">Explore the Menu</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:26px">
+        <h3 style="margin:0 0 12px">Gallery</h3>
+        <div class="gallery">
+          <img src="pic 1.jpg" alt="gallery1">
+          <img src="chaiii.jpg" alt="gallery2">
+          <img src="images deee.jpg" alt="gallery3">
+          <img src="share.jpg" alt="gallery4">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <div>
+          <h2>Contact & Reservations</h2>
+          <div class="subtitle">We'd love to hear from you</div>
+        </div>
+      </div>
+
+      <div class="contact-grid" style="margin-top:18px">
+        <form class="form" onsubmit="event.preventDefault();alert('Thanks — we received your message!')">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" required>
+          <label style="margin-top:8px">Email</label>
+          <input type="email" placeholder="you@example.com" required>
+          <label style="margin-top:8px">Message</label>
+          <textarea rows="5" placeholder="How can we help?" required></textarea>
+          <div style="margin-top:12px;display:flex;gap:10px;justify-content:flex-end">
+            <button class="btn btn-ghost" type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </div>
+        </form>
+        <div>
+          <div class="map">heloo wlecomme to anekcafe </div>
+          <div style="margin-top:12px;background:#ffffff;padding:12px;
+          border-radius:10px;
+          box-shadow:0 6px 20px rgba(0,0,0,0.04)">
+            <div style="font-weight:800">Aurora Café</div>
+            <div class="muted">123 Coffee Lane, Sland City</div>
+            <div style="margin-top:6px">Phone: <strong>+91 987654432</strong></div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Open daily 8:00AM — 10:00PM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-col">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="logo" style="width:46px;height:46px">A</div>
+          <div>
+            <div style="font-weight:800">AnekCafe</div>
+            <div class="muted" style="font-size:13px">Coffee • Pastries • Community</div>
+          </div>
+        </div>
+        <div class="legal">© <span id="year"></span> Anek Cafe — All rights reserved.</div>
+      </div>
+
+      <div class="footer-col">
+        <div style="font-weight:800">Visit</div>
+        <div class="muted" style="margin-top:8px">123 Coffee Lane<br/>Sland City, ZIP</div>
+        <div style="margin-top:12px">Email: hello@anek cafe.com</div>
+        <div style="margin-top:10px">Phone: +91 987654432</div>
+      </div>
+
+      <div class="footer-col" style="text-align:right">
+        <div style="font-weight:800">Opening Hours</div>
+        <div class="muted" style="margin-top:8px">Mon–Fri: 8:00AM — 9:00PM<br/>Sat–Sun: 8:30AM — 10:00PM</div>
+        <div style="margin-top:18px"><a href="#order" class="btn btn-primary">Order Online</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav(){
+      const nav = document.getElementById('navList');
+      const expanded = nav.style.display === 'flex';
+      nav.style.display = expanded ? 'none' : 'flex';
+    }
+
+    function filterMenu(tag){
+      const cards = document.querySelectorAll('#menuGrid .card');
+      cards.forEach(c => {
+        if(tag === 'all') c.style.display = '';
+        else {
+          const t = c.getAttribute('data-tags') || '';
+          c.style.display = t.includes(tag) ? '' : 'none';
+        }
+      })
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
