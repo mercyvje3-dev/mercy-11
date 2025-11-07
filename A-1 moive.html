@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Movie Categories Page</title>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f1014;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #131722;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #1f80e0;
+  margin: 0;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover { color: #fff; }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #1a1f2e;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-left: 10px;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  width: 160px;
+}
+
+.search-bar input::placeholder { color: #888; }
+.search-bar i { color: #ccc; font-size: 16px; margin-right: 6px; }
+
+.sign-in-btn {
+  background: #1f80e0;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sign-in-btn:hover { background: #1061b0; }
+
+.section {
+  padding: 25px 30px;
+}
+
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1f80e0;
+}
+
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.movie-card {
+  flex: 0 0 220px; 
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1f2e;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover { transform: scale(1.05); }
+
+.movie-card img {
+  width: 100%;
+  height: 330px; 
+  object-fit: cover;
+}
+
+.movie-title {
+  text-align: center;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #ddd;
+}
+
+footer {
+  background: #0a0b10;
+  text-align: center;
+  padding: 15px;
+  color: #999;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) { 
+  .movie-card { flex: 0 0 180px; }
+  .movie-card img { height: 280px; }
+}
+
+@media (max-width: 768px) { 
+  header { flex-direction: column; align-items: flex-start; padding: 12px 15px; }
+  nav { flex-wrap: wrap; justify-content: flex-start; gap: 8px; width: 100%; margin-top: 10px; }
+  .search-bar input { width: 120px; }
+  .movie-card { flex: 0 0 150px; }
+  .movie-card img { height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .movie-card { flex: 0 0 130px; }
+  .movie-card img { height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Hotstar</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Movies</a>
+    <a href="#">Categories</a>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search">
+    </div>
+    <button class="sign-in-btn">SIGN IN</button>
+  </nav>
+</header>
+
+<div class="section">
+  <h2>Love Movies</h2>
+  <div class="movie-row">
+    <div class="movie-card"><img src="emakku thozhil romance.jpeg" alt=""><div class="movie-title">Emakku Thozhil Romance</div></div>
+    <div class="movie-card"><img src="Once more.jpeg" alt=""><div class="movie-title">Once more</div></div>
+    <div class="movie-card"><img src="lover.jpg" alt=""><div class="movie-title">lover</div></div>
+    <div class="movie-card"><img src="sweetheart.webp" alt=""><div class="movie-title">sweetheart</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Action Movies</h2>
+  <div class="movie-row">
+    <div class="movie-card"><img src="ACTION.jpeg" alt=""><div class="movie-title">Action</div></div>
+    <div class="movie-card"><img src="AVATAR.avif" alt=""><div class="movie-title">Avaatar</div></div>
+    <div class="movie-card"><img src="asthram.jpg" alt=""><div class="movie-title">asthram</div></div>
+    <div class="movie-card"><img src="madraskaaran.avif" alt=""><div class="movie-title">madraskaaran</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Ghost Movies</h2>
+  <div class="movie-row">
+    <div class="movie-card"><img src="jinn.avif" alt=""><div class="movie-title">Jinn</div></div>
+    <div class="movie-card"><img src="MURMUR.jpg" alt=""><div class="movie-title">Murmur</div></div>
+    <div class="movie-card"><img src="Aghathiyaa.jpg" alt=""><div class="movie-title">Aghathiyaa</div></div>
+    <div class="movie-card"><img src="Kingston.jpg" alt=""><div class="movie-title">Kingston</div></div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Movie Zone — Created by Sneha Mercy
+</footer>
+
+</body>
+</html>
